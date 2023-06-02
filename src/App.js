@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <h1>SV parking</h1>
-      <BrowserRouter>
+      <HashRouter>
         {show()}
         <Routes>
           <Route path='/' element={<SignIn users={users} setShowMenu={setShowMenu} setIndex={setIndex} />} />
@@ -47,7 +47,7 @@ function App() {
           <Route path='/allParking' element={<AllParking users={users[index]} moveToHistory={moveToHistory}/>} />
           <Route path='/history' element={<History users={users} index={index} setUsers={setUsers}/>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
